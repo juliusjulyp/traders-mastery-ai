@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(env)",
+      "Bash(ls:*)",
+      "mcp__nodit-mcp-server__list_nodit_api_categories",
+      "mcp__nodit-mcp-server__list_nodit_data_apis",
+      "mcp__nodit-mcp-server__list_nodit_aptos_indexer_api_query_root",
+      "Bash(npm run build:*)",
+      "Bash(pkill:*)",
+      "Bash(npm start)"
+    ],
+    "deny": []
+  }
+}

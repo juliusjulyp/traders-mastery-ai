@@ -1,0 +1,176 @@
+/* ============================================
+   SHARED CSS VARIABLES - TRADERS MASTERY
+   ============================================ */
+
+:root {
+  /* ====== COLOR PALETTE ====== */
+  
+  /* Primary Colors */
+  --primary-green: #00ff41;
+  --primary-green-rgb: 0, 255, 65;
+  --secondary-green: #27ca3f;
+  --secondary-green-rgb: 39, 202, 63;
+  
+  /* Accent Colors */
+  --accent-blue: #4a9eff;
+  --accent-blue-rgb: 74, 158, 255;
+  --warning-orange: #ffbd2e;
+  --warning-orange-rgb: 255, 189, 46;
+  --error-red: #ff5f56;
+  --error-red-rgb: 255, 95, 86;
+  
+  /* Background Colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-card: #1e1e1e;
+  --bg-form: #252525;
+  
+  /* Text Colors */
+  --text-primary: var(--primary-green);
+  --text-secondary: #ffffff;
+  --text-muted: #888888;
+  --text-success: var(--secondary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* ====== SPACING ====== */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* ====== TYPOGRAPHY ====== */
+  --font-mono: 'Courier New', 'Monaco', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
+  
+  /* ====== BORDERS ====== */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+  
+  --border-primary: var(--border-width-thick) solid var(--primary-green);
+  --border-secondary: var(--border-width) solid var(--primary-green);
+  --border-muted: var(--border-width) solid #333333;
+  
+  /* ====== SHADOWS ====== */
+  --shadow-primary: 0 0 20px rgba(var(--primary-green-rgb), 0.3);
+  --shadow-primary-intense: 0 0 30px rgba(var(--primary-green-rgb), 0.5);
+  --shadow-inset-primary: inset 0 0 20px rgba(var(--primary-green-rgb), 0.1);
+  --shadow-inset-primary-intense: inset 0 0 30px rgba(var(--primary-green-rgb), 0.2);
+  
+  --shadow-blue: 0 0 10px rgba(var(--accent-blue-rgb), 0.5);
+  --shadow-green: 0 0 10px rgba(var(--secondary-green-rgb), 0.5);
+  --shadow-orange: 0 0 5px rgba(var(--warning-orange-rgb), 0.5);
+  --shadow-red: 0 0 5px rgba(var(--error-red-rgb), 0.5);
+  
+  /* Combined Terminal Glow */
+  --terminal-glow: var(--shadow-primary), var(--shadow-inset-primary);
+  --terminal-glow-intense: var(--shadow-primary-intense), var(--shadow-inset-primary-intense);
+  
+  /* ====== TEXT SHADOWS ====== */
+  --text-shadow-primary: 0 0 10px rgba(var(--primary-green-rgb), 0.8);
+  --text-shadow-secondary: 0 0 5px rgba(var(--primary-green-rgb), 0.5);
+  --text-shadow-blue: 0 0 5px rgba(var(--accent-blue-rgb), 0.5);
+  --text-shadow-green: 0 0 10px rgba(var(--secondary-green-rgb), 0.8);
+  
+  /* ====== ANIMATIONS ====== */
+  --transition-fast: 0.2s ease-out;
+  --transition-normal: 0.3s ease-out;
+  --transition-slow: 0.5s ease-out;
+  
+  /* ====== DIMENSIONS ====== */
+  --terminal-min-height: 400px;
+  --terminal-max-height: 90vh;
+  --form-max-width: 500px;
+  --button-height: 3rem;
+  --input-height: 2.5rem;
+  
+  /* ====== Z-INDEX LAYERS ====== */
+  --z-dropdown: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  
+  /* ====== LAYOUT ====== */
+  --container-padding: var(--spacing-lg);
+  --grid-gap: var(--spacing-lg);
+  --card-padding: var(--spacing-lg);
+}
+
+/* ====== UTILITY CLASSES FOR COMMON PATTERNS ====== */
+
+/* Terminal Base Styling */
+.terminal-base {
+  background: var(--bg-primary);
+  border: var(--border-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--terminal-glow);
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.terminal-glow-animation {
+  animation: terminalGlow 2s ease-in-out infinite alternate;
+}
+
+/* Common Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border: var(--border-secondary);
+  color: var(--text-primary);
+  text-shadow: var(--text-shadow-primary);
+}
+
+/* Common Text Styles */
+.text-glow {
+  text-shadow: var(--text-shadow-primary);
+}
+
+.text-glow-secondary {
+  text-shadow: var(--text-shadow-secondary);
+}
+
+.text-glow-blue {
+  color: var(--accent-blue);
+  text-shadow: var(--text-shadow-blue);
+}
+
+/* Status Colors */
+.status-active {
+  color: var(--secondary-green);
+  font-weight: bold;
+  text-shadow: var(--text-shadow-green);
+}
+
+.status-error {
+  color: var(--error-red);
+}
+
+.status-warning {
+  color: var(--warning-orange);
+}
+
+.status-info {
+  color: var(--accent-blue);
+}
+
+/* Common Gradients */
+.gradient-header {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+}

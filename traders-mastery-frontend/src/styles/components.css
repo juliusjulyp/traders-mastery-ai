@@ -1,0 +1,326 @@
+/* Component Styling */
+
+/* Risk Metrics */
+.risk-metrics h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.metric label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.metric span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.metric span.good {
+  color: #059669;
+}
+
+.metric span.average {
+  color: #d97706;
+}
+
+.metric span.poor {
+  color: #dc2626;
+}
+
+.metric span.profit {
+  color: #059669;
+}
+
+.metric span.loss {
+  color: #dc2626;
+}
+
+/* Key Points */
+.key-points {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.key-points h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.key-points ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.key-points li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Blockchain Data */
+.raw-blockchain-data {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 2px solid #64748b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.raw-blockchain-data h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #334155;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.data-section {
+  margin-bottom: 1.5rem;
+}
+
+.data-section:last-child {
+  margin-bottom: 0;
+}
+
+.data-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.whale-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.whale-item {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.whale-address {
+  font-weight: 500;
+  color: #3730a3;
+}
+
+.whale-balance {
+  font-weight: 600;
+  color: #059669;
+}
+
+.transfer-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.transfer-stats span {
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Analysis Results */
+.analysis-results {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-results h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Recommendations */
+.recommendation {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.recommendation.strong_buy {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.recommendation.buy {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: white;
+}
+
+.recommendation.hold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.recommendation.avoid {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.recommendation.strong_avoid {
+  background: linear-gradient(135deg, #991b1b, #7f1d1d);
+  color: white;
+}
+
+.recommendation h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.confidence {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.analysis-text {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.analysis-text p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* AI Analysis Styling */
+.ai-indicator {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.ai-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.ai-insights {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.ai-insights h3 {
+  color: #6366f1;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ai-section {
+  margin-bottom: 1rem;
+}
+
+.ai-section h4 {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.ai-section p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Blockchain Insights */
+.blockchain-insights {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 2px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.blockchain-insights h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #0c4a6e;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.insight-section {
+  margin-bottom: 1.5rem;
+}
+
+.insight-section:last-child {
+  margin-bottom: 0;
+}
+
+.insight-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #0c4a6e;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #bae6fd;
+  padding-bottom: 0.25rem;
+}
+
+.insight-section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.blockchain-insight {
+  margin-bottom: 0.5rem;
+  color: #1e40af;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.blockchain-insight:last-child {
+  margin-bottom: 0;
+}

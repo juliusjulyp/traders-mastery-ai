@@ -1,0 +1,153 @@
+/* MCP Test Panel Styles */
+
+.mcp-test-panel {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+.mcp-test-panel h3 {
+  color: #4CAF50;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.mcp-status {
+  margin-bottom: 15px;
+}
+
+.status-indicator {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.status-indicator.available {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.status-indicator.unavailable {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+.mcp-info p {
+  color: #81C784;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.test-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.data-test {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mcp-test-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.mcp-test-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #4CAF50);
+  transform: translateY(-1px);
+}
+
+.mcp-test-btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.data-test select {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.connection-status {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.connection-status.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.connection-status.error {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+.connection-status.info {
+  background: rgba(33, 150, 243, 0.2);
+  color: #2196F3;
+  border: 1px solid #2196F3;
+}
+
+.mcp-results {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.mcp-results h4 {
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.mcp-results h5 {
+  color: #81C784;
+  margin: 10px 0 5px 0;
+  font-size: 1em;
+}
+
+.whale-data, .volume-data, .liquidity-data {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.whale-data:last-child, .volume-data:last-child, .liquidity-data:last-child {
+  border-bottom: none;
+}
+
+.mcp-results p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.mcp-results p strong {
+  color: #e0e0e0;
+}

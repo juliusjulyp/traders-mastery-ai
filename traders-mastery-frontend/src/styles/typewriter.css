@@ -1,0 +1,224 @@
+/* Typewriter Effect Styling - Using Shared Variables & Animations */
+
+/* Note: Basic fade-in and cursor-blink moved to _animations.css */
+
+.typewriter-text {
+  opacity: 0;
+  animation: fadeIn var(--transition-normal) ease-in-out forwards;
+}
+
+.typewriter-section {
+  opacity: 0;
+  animation: sectionFadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Section headers with typewriter effect */
+.typewriter-text.analysis-header h2,
+.typewriter-text.metrics-header h3,
+.typewriter-text.points-header h3,
+.typewriter-text.blockchain-header h3,
+.typewriter-text.ai-insights-header h3,
+.typewriter-text.blockchain-insights-header h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  text-shadow: 0 0 15px rgba(var(--primary-green-rgb), 0.8);
+  font-family: var(--font-mono);
+}
+
+.typewriter-text.section-header h4 {
+  color: var(--accent-blue);
+  text-shadow: var(--text-shadow-blue);
+  font-family: var(--font-mono);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Smooth appearance for metrics - Using shared animations */
+.metrics-grid .metric {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Key points animation - Using shared animations */
+.key-points li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+/* Note: slideInUp and slideInLeft keyframes moved to _animations.css */
+
+/* AI sections progressive appearance */
+.ai-section {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: slideInUp 0.7s ease-out forwards;
+}
+
+/* Blockchain insights animation */
+.blockchain-insight {
+  opacity: 0;
+  transform: translateX(-15px);
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+/* Note: Using shared slideInUp and slideInLeft animations */
+
+/* Enhanced glow for typewriter sections */
+.typewriter-section {
+  position: relative;
+}
+
+.typewriter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(var(--primary-green-rgb), 0.1), transparent);
+  opacity: 0;
+  animation: sectionGlow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+  border-radius: var(--border-radius-sm);
+}
+
+@keyframes sectionGlow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Special styling for recommendation typewriter */
+.recommendation.typewriter-section {
+  animation: recommendationAppear 1s ease-out forwards;
+}
+
+@keyframes recommendationAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Analysis text typewriter styling */
+.analysis-text.typewriter-section {
+  border-left: 3px solid transparent;
+  animation: borderGlow 0.5s ease-in-out forwards;
+}
+
+@keyframes borderGlow {
+  to {
+    border-left-color: rgba(var(--primary-green-rgb), 0.5);
+  }
+}
+
+/* Whale data animation */
+.whale-item {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: whaleAppear 0.4s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+@keyframes whaleAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transfer stats animation */
+.transfer-stats span {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: statsAppear 0.3s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+@keyframes statsAppear {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Performance optimizations */
+.typewriter-text * {
+  will-change: auto;
+}
+
+.typewriter-section {
+  will-change: auto;
+}
+
+/* Error boundary styling */
+.terminal-error {
+  background: rgba(var(--error-red-rgb), 0.1);
+  border: var(--border-width-thick) solid var(--error-red);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--error-red);
+  margin: var(--spacing-xl);
+}
+
+.terminal-error h3 {
+  color: var(--error-red);
+  text-shadow: 0 0 10px rgba(var(--error-red-rgb), 0.8);
+  margin-bottom: var(--spacing-md);
+}
+
+.terminal-error button {
+  background: linear-gradient(135deg, var(--error-red), #ff7b72);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem var(--spacing-lg);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: var(--spacing-md);
+  transition: all var(--transition-fast);
+}
+
+.terminal-error button:hover {
+  background: linear-gradient(135deg, #ff7b72, #ff9592);
+  transform: translateY(-1px);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-text,
+  .typewriter-section,
+  .metric,
+  .key-points li,
+  .ai-section,
+  .blockchain-insight {
+    animation-duration: 0.1s;
+  }
+  
+  .cursor-blink {
+    animation: none;
+    opacity: 1;
+  }
+}

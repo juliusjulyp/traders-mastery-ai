@@ -1,0 +1,15 @@
+/* Traders Mastery AI - Optimized Modular CSS */
+
+/* Import shared foundation files first */
+@import './_variables.css';
+@import './_animations.css';
+
+/* Import component CSS files */
+@import './layout.css';
+@import './form.css';
+@import './components.css';
+@import './terminal.css';
+@import './ai-chat.css';
+@import './trade-outcome.css';
+
+/* Note: terminal-components.css and terminal-tabs.css merged into terminal.css */
