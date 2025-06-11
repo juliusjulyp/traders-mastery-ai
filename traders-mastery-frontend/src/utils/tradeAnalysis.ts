@@ -279,7 +279,7 @@ export interface RiskMetrics {
 }
 
 export interface TradeAnalysis {
-  tradingPair: string // Added missing property needed by components
+  tradingPair: string 
   riskMetrics: RiskMetrics
   recommendation: 'STRONG_BUY' | 'BUY' | 'HOLD' | 'AVOID' | 'STRONG_AVOID'
   confidence: number

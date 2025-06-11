@@ -33,7 +33,7 @@ When a trader wants to execute a trade, they provide:
 
 
 ### AI Analysis Process
-The AI system then:
+The AI system then:  
 
 1. **Historical Analysis**: Examines past price movements for the trading pair
 2. **Pattern Recognition**: Identifies similar market conditions and outcomes
@@ -66,12 +66,6 @@ The AI system then:
  **Historical Data Integration**: Connect Alpha Vantage API for technical indicators
 
 ### Wave 3: Advanced Price Prediction Models
-- **Machine Learning Integration**: Neural networks trained on combined technical + on-chain data. Training the LLM with onchain data which include inflow volume and outflow, 
-- **Multi-timeframe Analysis**: Correlate short-term signals with long-term trends
-- **Market Regime Detection**: Identify bull/bear/sideways market conditions for strategy adaptation
-- **Volatility Prediction**: Forecast price volatility windows for optimal position sizing
-- **Risk-Adjusted Signals**: Combine probability with risk assessment for trade recommendations
-
 ### Wave 4: News Sentiment & Market Intelligence
 - **Real-Time News Analysis**: AI-powered sentiment scoring from multiple news sources
 - **Regulatory Impact Assessment**: Automated analysis of policy changes and market effects
@@ -283,5 +277,3 @@ The AI system then:
 ```
 
 ### AI Sentiment Processing Pipeline
-
-
