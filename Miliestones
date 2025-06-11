@@ -1,7 +1,6 @@
 📊 CURRENT STATE: Wave 1 - COMPLETE & OPERATIONAL ✅
 
-  Your project is far more advanced than typical
-  prototypes. Wave 1 is fully production-ready with:
+   Wave 1 is fully production-ready with:
 
   - ✅ AI Trading Analysis: Real Claude integration with
   blockchain data
@@ -17,7 +16,7 @@
   ---
   🎯 Wave 2: Technical Analysis Integration (Next Priority)
 
-  Add Traditional TA to Your AI Engine:
+  Add Traditional TA to the AI Engine:
   - Alpha Vantage API integration for RSI, MACD, Bollinger
   Bands
   -Improving the functionality of Traders Mastery AI in analysing data fetched from Nodit in analysis
@@ -34,7 +33,7 @@
   🤖 Wave 3: ML Prediction Models (High Impact)
 
   Add Predictive Intelligence:
-   - Real-time whale movement alerts
+   - Real-time whale movement alerts using mcp 
   - Neural networks trained on  collected trade data
   - Volatility forecasting models
   - Market regime detection (bull/bear/sideways) by the use of onchain analysis and technical analysis
