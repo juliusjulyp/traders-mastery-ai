@@ -1,0 +1,312 @@
+/* Risk Calculator Styles */
+
+.risk-calculator {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.risk-calculator h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 0.5rem;
+}
+
+/* Placeholder and Error States */
+.calculator-placeholder {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.calculator-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(220, 53, 69, 0.1);
+  border-radius: 8px;
+  color: #dc3545;
+  font-size: 0.9rem;
+}
+
+.error-icon {
+  font-size: 1.2rem;
+}
+
+/* Quick Stats */
+.risk-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.stat-card label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Risk Level Colors */
+.risk-low {
+  border-color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.risk-low .stat-value {
+  color: #28a745;
+}
+
+.risk-medium {
+  border-color: #ffc107;
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.risk-medium .stat-value {
+  color: #ffc107;
+}
+
+.risk-high {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.risk-high .stat-value {
+  color: #dc3545;
+}
+
+/* Risk:Reward Colors */
+.rr-excellent {
+  border-color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.rr-excellent .stat-value {
+  color: #28a745;
+}
+
+.rr-good {
+  border-color: #17a2b8;
+  background: rgba(23, 162, 184, 0.1);
+}
+
+.rr-good .stat-value {
+  color: #17a2b8;
+}
+
+.rr-fair {
+  border-color: #ffc107;
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.rr-fair .stat-value {
+  color: #ffc107;
+}
+
+.rr-poor {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.rr-poor .stat-value {
+  color: #dc3545;
+}
+
+/* Position Suggestion */
+.position-suggestion {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #bbdefb;
+}
+
+.suggestion-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1976d2;
+  font-size: 0.9rem;
+}
+
+.suggestion-icon {
+  font-size: 1.1rem;
+}
+
+.suggestion-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0.25rem;
+}
+
+.suggestion-desc {
+  font-size: 0.8rem;
+  color: #616161;
+  margin-bottom: 1rem;
+}
+
+.apply-suggestion-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.apply-suggestion-btn:hover {
+  background: #1565c0;
+}
+
+/* Detailed Metrics */
+.detailed-metrics {
+  margin-bottom: 1.5rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.metric-value.loss {
+  color: #dc3545;
+}
+
+.metric-value.profit {
+  color: #28a745;
+}
+
+/* Leverage Warning */
+.leverage-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: #856404;
+}
+
+.leverage-icon {
+  font-size: 1.1rem;
+  color: #f39c12;
+}
+
+.leverage-impact {
+  margin-left: auto;
+  font-weight: 600;
+  color: #e67e22;
+  font-size: 0.8rem;
+}
+
+/* Risk Presets */
+.risk-presets h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+.preset-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.preset-btn {
+  padding: 0.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: white;
+  color: #6c757d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.preset-btn:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.preset-btn.active {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .risk-calculator {
+    position: static;
+    max-height: none;
+    margin-top: 1rem;
+  }
+  
+  .risk-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .preset-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

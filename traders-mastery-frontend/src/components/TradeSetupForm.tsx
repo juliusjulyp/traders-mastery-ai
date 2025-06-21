@@ -1,4 +1,6 @@
 // Trade Setup Form Component - Optimized & Reusable
+import React from 'react'
+import { TradingPairInput } from './TradingPairInput'
 
 interface TradeSetupFormData {
   tradingPair: string
@@ -30,17 +32,53 @@ export function TradeSetupForm({
   isAnalyzing,
   analysisStep
 }: TradeSetupFormProps) {
+  
+  const applyTemplate = (template: 'conservative' | 'aggressive' | 'scalping') => {
+    const templates = {
+      conservative: {
+        leverage: '2x',
+        timeFrame: 'swing',
+        entryReasoning: 'Conservative swing trade with strong support/resistance levels and confirmed trend direction',
+        takeProfitReasoning: 'Target set at next major resistance with 2:1 risk-reward ratio',
+        stopLossReasoning: 'Stop loss below key support level with 1-2% account risk'
+      },
+      aggressive: {
+        leverage: '10x',
+        timeFrame: 'day-trading', 
+        entryReasoning: 'High-conviction setup with strong momentum and volume confirmation',
+        takeProfitReasoning: 'Quick profit target at nearest resistance for fast exit',
+        stopLossReasoning: 'Tight stop loss for high leverage position with 3-5% account risk'
+      },
+      scalping: {
+        leverage: '20x',
+        timeFrame: 'scalping',
+        entryReasoning: 'Short-term momentum play on key level break with high volume',
+        takeProfitReasoning: 'Quick scalp target at immediate resistance for fast profit',
+        stopLossReasoning: 'Very tight stop loss below entry for minimal risk per trade'
+      }
+    }
+    
+    const selectedTemplate = templates[template]
+    Object.entries(selectedTemplate).forEach(([key, value]) => {
+      onInputChange(key as keyof TradeSetupFormData, value)
+    })
+  }
+
   return (
     <form onSubmit={onSubmit} className="trade-form">
-      <h2>Trade Setup Analysis</h2>
+      <div className="analysis-intro">
+        <div className="intro-content">
+          <h4>📊 Trade Setup Analysis</h4>
+          <p>Get AI-powered feedback on your trade ideas. Our system analyzes risk, market conditions, and blockchain data to help you make better trading decisions.</p>
+        </div>
+      </div>
       
-      <FormInput
-        id="tradingPair"
-        label="Trading Pair"
-        type="text"
-        placeholder="e.g., BTC/USDT, ETH/BTC"
+      <QuickTemplates onApplyTemplate={applyTemplate} />
+      
+      <TradingPairInput
         value={tradeSetup.tradingPair}
         onChange={(value) => onInputChange('tradingPair', value)}
+        placeholder="e.g., BTC/USDT, ETH/BTC"
         required
       />
 
@@ -313,6 +351,52 @@ function ErrorDisplay({ errors }: { errors: string[] }) {
           <li key={index}>{error}</li>
         ))}
       </ul>
+    </div>
+  )
+}
+
+interface QuickTemplatesProps {
+  onApplyTemplate: (template: 'conservative' | 'aggressive' | 'scalping') => void
+}
+
+function QuickTemplates({ onApplyTemplate }: QuickTemplatesProps) {
+  return (
+    <div className="quick-templates">
+      <h3>Quick Setup Templates</h3>
+      <div className="template-buttons">
+        <button
+          type="button"
+          className="template-btn conservative"
+          onClick={() => onApplyTemplate('conservative')}
+          title="2x leverage, swing trading, tight risk management"
+        >
+          <span className="template-icon">🛡️</span>
+          <span className="template-name">Conservative</span>
+          <span className="template-desc">2x • 2:1 R/R • Swing</span>
+        </button>
+        
+        <button
+          type="button"
+          className="template-btn aggressive"
+          onClick={() => onApplyTemplate('aggressive')}
+          title="10x leverage, day trading, higher risk/reward"
+        >
+          <span className="template-icon">⚡</span>
+          <span className="template-name">Aggressive</span>
+          <span className="template-desc">10x • 3:1 R/R • Day</span>
+        </button>
+        
+        <button
+          type="button"
+          className="template-btn scalping"
+          onClick={() => onApplyTemplate('scalping')}
+          title="20x leverage, scalping, very tight stops"
+        >
+          <span className="template-icon">🔥</span>
+          <span className="template-name">Scalping</span>
+          <span className="template-desc">20x • Quick • 1-15m</span>
+        </button>
+      </div>
     </div>
   )
 }

@@ -6,12 +6,7 @@ An intelligent trading assistant that helps cryptocurrency  traders(spot trading
 
 Traders Mastery AI is designed to be a trader's intelligent companion, providing comprehensive analysis and risk assessment for every trade decision. The system evaluates trade setups against historical data, market conditions, and risk parameters to help traders avoid costly mistakes and improve their trading performance.
 
-## Development Phases
 
-### Wave 1: Core Trade Analysis System
-- **Trade Setup Validation**: Analyze trading pairs, entry points, and exit strategies
-- **Basic Risk Assessment**: Calculate risk-reward ratios and position sizing
--
 - **Nodit Blockchain Integration**: Real-time on-chain data
 - **AI Trade Evaluation**: Basic probability assessment for trade outcomes
 
@@ -40,11 +35,9 @@ The AI system then:
 3. **Risk Calculation**: Evaluates risk-reward ratio and position sizing
 4. **Probability Assessment**: Estimates likelihood of trade success
 5. **Market Context**: Considers current market conditions and volatility
-6. **Recommendation**: Provides a comprehensive assessment with suggestions
+6. **Recommendation**: Provides a comprehensive assessment with suggest
 
-## Nodit MCP Integration Architecture
-
-### Why MCP + Nodit = Trading Edge
+  MCP + Nodit = Trading Edge
 
 **MCP (Model Context Protocol)** connects directly to Nodit's enterprise-grade RPC infrastructure, enabling our AI to access and reason with real-time blockchain data through standardized JSON-RPC methods. This creates a unique advantage over traditional trading tools that rely only on exchange APIs.
 
@@ -58,28 +51,31 @@ The AI system then:
 
 ### Wave 2: Advanced Technical Analysis
 - **Structured Onchain Information** : This wave will include a well structured and organized information of a token or pair that the trader is interested in.
-- **Custom Market Intelligence**: Build proprietary indicator suite similar to Market Cipher B
-- **Pattern Recognition Engine**: Advanced chart pattern and trend analysis
+-**UI UX Improvement** : Improve the Interface to match the project goals.
+- **Pattern Recognition Engine**: Recognize whale moves in the market
 - **Multi-timeframe Analysis**: Comprehensive view across different time horizons
-- **Divergence Detection**: Identify bullish/bearish divergences automatically
-- **Support/Resistance Mapping**: Dynamic key level identification
- **Historical Data Integration**: Connect Alpha Vantage API for technical indicators
+- **More tokens featured in the application** : Add more tokens supported in Nodit not only ethereum
+
 
 ### Wave 3: Advanced Price Prediction Models
+**Database Implementation** - Implement database for storage and session management
+                           -Be able to track trades made on dexes(cex will come later)
+**Machine Learning Model** - Enhancing risk calculation with machine learning using tensorflow.js
+                           -Market Regime detection i.e bull/bear/sideways classification
+                           -Comnbine ML Insights to make claude's analysis more market aware 
+**Technical Analysis**  - Add technical analysis for market analysis and also for auto enabled features
+
+
+
+
 ### Wave 4: News Sentiment & Market Intelligence
 - **Real-Time News Analysis**: AI-powered sentiment scoring from multiple news sources
 - **Regulatory Impact Assessment**: Automated analysis of policy changes and market effects
 - **Social Media Sentiment**: Twitter, Reddit, and forum sentiment aggregation
 - **News-Price Correlation Engine**: Historical analysis of news impact on price movements
-- **Multi-Factor Signal Generation**: Combine technical + on-chain + news sentiment for predictions
-
-### Wave 5: Real-Time Automation & Alerts
-- **Instant Signal Generation**: Real-time alerts when multiple indicators align
-- **Smart Money Notifications**: Immediate alerts on significant whale movements
-- **Market Opportunity Scanner**: Automated discovery of high-probability setups
-- **Breaking News Alerts**: Immediate price impact notifications for major news events
-- **Comprehensive Risk Warnings**: Multi-factor risk assessment including news sentiment
-
+ **Instant Market recomendation**: Real-time alerts when multiple indicators align
+ - **Smart Money Notifications**: Immediate alerts on significant whale movements
+ - **Market Opportunity Scanner**: Automated discovery of high-probability setups
 
 
 
@@ -93,10 +89,6 @@ The AI system then:
 - Divergence detection algorithms
 
 **AI Enhancement**: Combines traditional technical analysis with on-chain intelligence for superior signal accuracy and timing precision.
-
-## AI Reasoning with Blockchain Data
-
-### How Our AI Understands On-Chain Intelligence
 
 **MCP Data Transformation**: Raw blockchain data (transactions, smart contract states, token transfers) is transformed into structured, AI-readable formats that enable sophisticated reasoning about market conditions.
 
@@ -127,7 +119,7 @@ The AI system then:
    ```
    MCP Input: RSI oversold + whale buying + liquidity increasing
    AI Reasoning: "Technical oversold condition combined with smart money accumulation = high probability reversal setup"
-   Trading Impact: Identifies optimal entry timing with multiple confirmation signals
+   Trading Impact: Identifies optimal entry timing with multiple confirmation 
    ```
 
 5. **News Sentiment Integration**

@@ -40,7 +40,7 @@ export class TradeOutcomeService {
       
       originalAnalysis: {
         tradingPair: tradeSetup.tradingPair,
-        recommendation: analysis.recommendation as any,
+        recommendation: analysis.recommendation as 'STRONG_BUY' | 'BUY' | 'HOLD' | 'AVOID' | 'STRONG_AVOID',
         confidence: analysis.confidence,
         analysis: analysis.analysis,
         keyInsights: analysis.keyPoints,

@@ -1,18 +1,25 @@
 import React from 'react'
 import type { TradeAnalysis } from '../utils/tradeAnalysis'
 import type { BlockchainInsights } from '../services/backendApi'
-import type { MCPBlockchainInsights } from '../services/mcpBlockchainService'
 import { AIChat } from './AIChat'
+import { EnhancedWhaleIntelligenceComponent } from './EnhancedWhaleIntelligence'
 
 interface TerminalPanelProps {
   analysis: TradeAnalysis | null
-  blockchainData: BlockchainInsights | MCPBlockchainInsights | null
+  blockchainData: BlockchainInsights | null
   tradingPair?: string
 }
 
 export function TerminalPanel({ analysis, blockchainData, tradingPair }: TerminalPanelProps) {
   return (
     <div className="terminal-panel">
+      <div className="results-header">
+        <div className="header-content">
+          <h3>🤖 AI Trade Assessment</h3>
+          <p>Comprehensive analysis of your setup with improvement recommendations</p>
+        </div>
+      </div>
+      
       {analysis ? (
         <div className="terminal-split-layout">
           <div className="analysis-section">
@@ -89,7 +96,7 @@ function AnimatedSection({ children }: { children: React.ReactNode; delay?: numb
   )
 }
 
-function AnalysisResults({ analysis, blockchainData }: { analysis: TradeAnalysis; blockchainData: BlockchainInsights | MCPBlockchainInsights | null }) {
+function AnalysisResults({ analysis, blockchainData }: { analysis: TradeAnalysis; blockchainData: BlockchainInsights | null }) {
   return (
     <div className="analysis-results">
       <h2>Trade Analysis Results</h2>
@@ -136,14 +143,21 @@ function AnalysisResults({ analysis, blockchainData }: { analysis: TradeAnalysis
         </div>
       )}
 
-      {analysis.aiInsights?.isAiGenerated && (
+      {/* Enhanced Whale Intelligence - New Advanced Feature */}
+      {analysis.tradingPair && (
         <AnimatedSection delay={1400}>
+          <EnhancedWhaleIntelligenceComponent tradingPair={analysis.tradingPair} />
+        </AnimatedSection>
+      )}
+
+      {analysis.aiInsights?.isAiGenerated && (
+        <AnimatedSection delay={1600}>
           <AIInsights aiInsights={analysis.aiInsights} />
         </AnimatedSection>
       )}
 
       {analysis.blockchainInsights && (
-        <AnimatedSection delay={1600}>
+        <AnimatedSection delay={1800}>
           <BlockchainInsights insights={analysis.blockchainInsights} />
         </AnimatedSection>
       )}
@@ -189,7 +203,7 @@ function KeyPoints({ keyPoints }: { keyPoints: string[] }) {
   )
 }
 
-function BlockchainDataDisplay({ blockchainData }: { blockchainData: BlockchainInsights | MCPBlockchainInsights }) {
+function BlockchainDataDisplay({ blockchainData }: { blockchainData: BlockchainInsights }) {
   console.log('🐛 [DEBUG] BlockchainDataDisplay received data:', blockchainData)
   
   return (
@@ -198,7 +212,7 @@ function BlockchainDataDisplay({ blockchainData }: { blockchainData: BlockchainI
       <div className="data-section">
         <h4>Top Whale Holders</h4>
         <div className="whale-list">
-          {blockchainData.whaleActivity.topHolders.slice(0, 3).map((whale, index) => (
+          {blockchainData.whaleActivity.topHolders.slice(0, 3).map((whale: { ownerAddress: string; balanceFormatted: number }, index: number) => (
             <div key={index} className="whale-item">
               <span className="whale-address">{whale.ownerAddress.slice(0, 8)}...{whale.ownerAddress.slice(-6)}</span>
               <span className="whale-balance">${(whale.balanceFormatted / 1000000).toFixed(1)}M</span>
@@ -210,9 +224,13 @@ function BlockchainDataDisplay({ blockchainData }: { blockchainData: BlockchainI
       <div className="data-section">
         <h4>Recent Large Transfers</h4>
         <div className="transfer-stats">
-          <span>Volume: ${(blockchainData.volumeAnalysis.totalVolume / 1000000).toFixed(0)}M</span>
+          <span>Volume: {blockchainData.volumeAnalysis.totalVolume > 1000000 ? 
+            `$${(blockchainData.volumeAnalysis.totalVolume / 1000000).toFixed(1)}M` : 
+            `$${(blockchainData.volumeAnalysis.totalVolume / 1000).toFixed(0)}K`}</span>
           <span>Transfers: {blockchainData.volumeAnalysis.transferCount}</span>
-          <span>Net Flow: ${(blockchainData.liquidityIndicators.netFlow / 1000000).toFixed(0)}M</span>
+          <span>Net Flow: {Math.abs(blockchainData.liquidityIndicators.netFlow) > 1000000 ? 
+            `$${(blockchainData.liquidityIndicators.netFlow / 1000000).toFixed(1)}M` : 
+            `$${(blockchainData.liquidityIndicators.netFlow / 1000).toFixed(0)}K`}</span>
         </div>
       </div>
     </div>

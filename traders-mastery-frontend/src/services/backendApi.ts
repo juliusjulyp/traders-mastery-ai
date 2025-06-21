@@ -78,6 +78,35 @@ export interface ClaudeResponse {
   reasoning: string
 }
 
+export interface TokenPrice {
+  currency: string
+  price: string
+  volumeFor24h: string
+  percentChangeFor24h: string
+  contract: {
+    address: string
+    name: string
+    symbol: string
+    decimals: number
+  }
+}
+
+export interface TokenPriceRequest {
+  symbol?: string
+  contractAddress?: string
+  protocol?: string
+  network?: string
+}
+
+export interface BatchTokenPricesRequest {
+  tokens: Array<{
+    symbol?: string
+    contractAddress?: string
+  }>
+  protocol?: string
+  network?: string
+}
+
 class BackendApiService {
   private sessionId: string
 
@@ -167,7 +196,7 @@ class BackendApiService {
 
   async getBlockchainInsights(
     tradingPair: string,
-    protocol: string = 'ethereum',
+    protocol?: string,
     network: string = 'mainnet'
   ): Promise<BlockchainInsights | null> {
     try {
@@ -178,7 +207,11 @@ class BackendApiService {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ tradingPair, protocol, network })
+        body: JSON.stringify({ 
+          tradingPair, 
+          ...(protocol && { protocol }), 
+          network 
+        })
       })
 
       console.log(`🐛 [DEBUG] Response status: ${response.status}`)
@@ -200,7 +233,7 @@ class BackendApiService {
     }
   }
 
-  async getNoditStatus(): Promise<any> {
+  async getNoditStatus(): Promise<{ status: string; timestamp?: string; message?: string }> {
     try {
       const response = await fetch(`${API_BASE_URL}/nodit-status`)
       
@@ -213,6 +246,97 @@ class BackendApiService {
       console.error('Nodit status check failed:', error)
       return { status: 'error', message: 'Failed to connect to Nodit service' }
     }
+  }
+
+  async getTokenPrice(request: TokenPriceRequest): Promise<TokenPrice | null> {
+    try {
+      console.log(`💰 [FRONTEND] Fetching token price for:`, request)
+      
+      const response = await fetch(`${API_BASE_URL}/token-price`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          symbol: request.symbol,
+          contractAddress: request.contractAddress,
+          protocol: request.protocol || 'ethereum',
+          network: request.network || 'mainnet'
+        })
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error('Token price API error:', errorData)
+        return null
+      }
+
+      const result = await response.json()
+      if (result.success && result.data) {
+        console.log(`✅ [FRONTEND] Token price retrieved: $${result.data.price}`)
+        return result.data
+      }
+      
+      console.warn('No token price data returned')
+      return null
+    } catch (error) {
+      console.error('Frontend API Error (Token Price):', error)
+      return null
+    }
+  }
+
+  async getBatchTokenPrices(request: BatchTokenPricesRequest): Promise<TokenPrice[]> {
+    try {
+      console.log(`💰 [FRONTEND] Fetching batch token prices for ${request.tokens.length} tokens`)
+      
+      const response = await fetch(`${API_BASE_URL}/token-prices`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          tokens: request.tokens,
+          protocol: request.protocol || 'ethereum',
+          network: request.network || 'mainnet'
+        })
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error('Batch token prices API error:', errorData)
+        return []
+      }
+
+      const result = await response.json()
+      if (result.success && result.data) {
+        console.log(`✅ [FRONTEND] Batch prices retrieved: ${result.data.length} tokens`)
+        return result.data
+      }
+      
+      console.warn('No batch token price data returned')
+      return []
+    } catch (error) {
+      console.error('Frontend API Error (Batch Token Prices):', error)
+      return []
+    }
+  }
+
+  async getPopularTokenPrices(): Promise<TokenPrice[]> {
+    const popularTokens = [
+      { symbol: 'BTC' },
+      { symbol: 'ETH' },
+      { symbol: 'USDT' },
+      { symbol: 'USDC' },
+      { symbol: 'LINK' },
+      { symbol: 'UNI' },
+      { symbol: 'AAVE' }
+    ]
+
+    return this.getBatchTokenPrices({
+      tokens: popularTokens,
+      protocol: 'ethereum',
+      network: 'mainnet'
+    })
   }
 
   getSessionId(): string {

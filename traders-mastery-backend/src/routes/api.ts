@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { claudeService } from '../services/claudeService'
 import { noditService } from '../services/noditService'
 import { tradeTrackingService } from '../services/tradeTrackingService'
-import type { TradeAnalysisRequest, ChatRequest, TradeOutcomeRequest } from '../types'
+import type { TradeAnalysisRequest, ChatRequest } from '../types'
 
 const router = Router()
 
@@ -66,7 +66,7 @@ router.post('/chat', async (req, res) => {
 // Blockchain data endpoint
 router.post('/blockchain-insights', async (req, res) => {
   try {
-    const { tradingPair, protocol = 'ethereum', network = 'mainnet' } = req.body
+    const { tradingPair, protocol, network = 'mainnet' } = req.body
 
     if (!tradingPair) {
       return res.status(400).json({
@@ -89,8 +89,34 @@ router.post('/blockchain-insights', async (req, res) => {
   }
 })
 
+// Enhanced Whale Intelligence endpoint
+router.post('/enhanced-whale-intelligence', async (req, res) => {
+  try {
+    const { tradingPair, protocol, network = 'mainnet' } = req.body
+
+    if (!tradingPair) {
+      return res.status(400).json({
+        error: 'Missing required field: tradingPair'
+      })
+    }
+
+    const whaleIntelligence = await noditService.getEnhancedWhaleIntelligence(tradingPair, protocol, network)
+    
+    res.json({
+      success: true,
+      data: whaleIntelligence
+    })
+  } catch (error) {
+    console.error('Enhanced whale intelligence error:', error)
+    res.status(500).json({
+      error: 'Failed to fetch enhanced whale intelligence',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    })
+  }
+})
+
 // Nodit service status endpoint
-router.get('/nodit-status', async (req, res) => {
+router.get('/nodit-status', async (_req, res) => {
   try {
     const isConnected = await noditService.testConnection()
     const supportedProtocols = noditService.getSupportedProtocols()
@@ -327,8 +353,149 @@ router.get('/trade-outcomes/:id', async (req, res) => {
   }
 })
 
+// Trading Pair Validation Endpoints
+
+// Validate trading pair and get real-time data
+router.post('/validate-trading-pair', async (req, res) => {
+  try {
+    const { symbol } = req.body
+
+    if (!symbol) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing required field: symbol'
+      })
+    }
+
+    console.log(`🔍 [PAIR-VALIDATION] Validating trading pair: ${symbol}`)
+
+    // Validate and get real-time token data
+    const pairData = await noditService.validateTradingPair(symbol)
+    
+    if (pairData) {
+      console.log(`✅ [PAIR-VALIDATION] Valid pair found: ${symbol}`)
+      res.json({
+        success: true,
+        data: pairData
+      })
+    } else {
+      console.log(`❌ [PAIR-VALIDATION] Pair not found: ${symbol}`)
+      res.json({
+        success: false,
+        message: `Trading pair "${symbol}" not found or not supported`
+      })
+    }
+  } catch (error) {
+    console.error('Trading pair validation error:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to validate trading pair',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    })
+  }
+})
+
+// Get all supported trading pairs
+router.get('/supported-trading-pairs', async (_req, res) => {
+  try {
+    console.log('📋 [SUPPORTED-PAIRS] Fetching supported trading pairs')
+    
+    const supportedPairs = await noditService.getSupportedTradingPairs()
+    
+    res.json({
+      success: true,
+      data: supportedPairs,
+      count: supportedPairs.length
+    })
+  } catch (error) {
+    console.error('Supported pairs retrieval error:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to retrieve supported trading pairs',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    })
+  }
+})
+
+// Token Price Endpoints
+
+// Get single token price
+router.post('/token-price', async (req, res) => {
+  try {
+    const { symbol, contractAddress, protocol = 'ethereum', network = 'mainnet' } = req.body
+
+    if (!symbol && !contractAddress) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing required field: symbol or contractAddress'
+      })
+    }
+
+    console.log(`💰 [TOKEN-PRICE] Fetching price for: ${symbol || contractAddress}`)
+
+    let priceData
+    if (symbol) {
+      priceData = await noditService.getTokenPriceBySymbol(symbol, protocol, network)
+    } else {
+      priceData = await noditService.getTokenPriceByContract(contractAddress, protocol, network)
+    }
+    
+    if (priceData) {
+      console.log(`✅ [TOKEN-PRICE] Price found: $${priceData.price}`)
+      res.json({
+        success: true,
+        data: priceData
+      })
+    } else {
+      console.log(`❌ [TOKEN-PRICE] No price data found`)
+      res.json({
+        success: false,
+        message: `Token price not found for ${symbol || contractAddress}`
+      })
+    }
+  } catch (error) {
+    console.error('Token price fetch error:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch token price',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    })
+  }
+})
+
+// Get batch token prices
+router.post('/token-prices', async (req, res) => {
+  try {
+    const { tokens, protocol = 'ethereum', network = 'mainnet' } = req.body
+
+    if (!tokens || !Array.isArray(tokens) || tokens.length === 0) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing required field: tokens (array)'
+      })
+    }
+
+    console.log(`💰 [BATCH-PRICES] Fetching prices for ${tokens.length} tokens`)
+
+    const priceData = await noditService.getBatchTokenPrices(tokens, protocol, network)
+    
+    console.log(`✅ [BATCH-PRICES] Retrieved ${priceData.length} token prices`)
+    res.json({
+      success: true,
+      data: priceData
+    })
+  } catch (error) {
+    console.error('Batch token prices fetch error:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch batch token prices',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    })
+  }
+})
+
 // Health check endpoint
-router.get('/health', (req, res) => {
+router.get('/health', (_req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -337,7 +504,8 @@ router.get('/health', (req, res) => {
       claudeAI: !!process.env.ANTHROPIC_API_KEY,
       noditBlockchain: true,
       realTimeData: true,
-      tradeTracking: true
+      tradeTracking: true,
+      pairValidation: true
     }
   })
 })

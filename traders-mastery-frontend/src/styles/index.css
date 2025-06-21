@@ -11,5 +11,98 @@
 @import './terminal.css';
 @import './ai-chat.css';
 @import './trade-outcome.css';
+@import './dashboard.css';
+@import './tabs.css';
+@import './sidebar.css';
+@import './progress.css';
+@import './floating-actions.css';
+@import './skeleton.css';
+@import './themes.css';
+@import './theme-selector.css';
+@import './enhanced-whale-intelligence.css';
+@import './risk-calculator.css';
+@import './trading-pair-input.css';
 
 /* Note: terminal-components.css and terminal-tabs.css merged into terminal.css */
+
+/* Platform Messaging Styles */
+.platform-notice {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.notice-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.dashboard-intro {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.dashboard-intro h3 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.dashboard-intro p {
+  color: #34495e;
+  margin: 0;
+  font-size: 14px;
+}
+
+.analysis-intro {
+  background: rgba(52, 152, 219, 0.08);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.analysis-intro h4 {
+  margin-bottom: 8px;
+  color: #2980b9;
+  font-size: 16px;
+}
+
+.analysis-intro p {
+  color: #34495e;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.results-header {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.results-header h3 {
+  margin-bottom: 6px;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.results-header p {
+  color: #34495e;
+  margin: 0;
+  font-size: 14px;
+}
+

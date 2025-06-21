@@ -236,9 +236,9 @@ export interface TradeSetup {
   takeProfitReasoning: string
   stopLossPrice: number
   stopLossReasoning: string
-  positionSize: number  // Changed from string to number to match backend
+  positionSize: number  
   timeFrame: string
-  leverage: number      // Changed from string to number to match backend
+  leverage: number      
 }
 
 // Utility function to convert form data to typed trade setup
@@ -433,7 +433,7 @@ export async function generateTradeRecommendation(
       
       // Still add blockchain insights if available
       if (blockchainData) {
-        aiAnalysis.blockchainInsights = analyzeBlockchainData(blockchainData, claudeInsight.recommendation, claudeInsight.confidence)
+        aiAnalysis.blockchainInsights = analyzeBlockchainData(blockchainData)
       }
       
       return aiAnalysis
@@ -532,7 +532,7 @@ export async function generateTradeRecommendation(
       netFlow: blockchainData.liquidityIndicators.netFlow
     })
     
-    blockchainInsights = analyzeBlockchainData(blockchainData, recommendation, confidence)
+    blockchainInsights = analyzeBlockchainData(blockchainData)
     
     // Adjust recommendation based on blockchain insights
     const blockchainAdjustment = calculateBlockchainAdjustment(blockchainData)
@@ -656,12 +656,9 @@ export function parseLeverage(leverageStr: string): number {
   return 1
 }
 
-// Note: assessTimeFrameRisk moved to utility function above
 
 function analyzeBlockchainData(
-  blockchainData: BlockchainInsights, 
-  _currentRecommendation: string, 
-  _currentConfidence: number
+  blockchainData: BlockchainInsights
 ) {
   const whaleActivity: string[] = []
   const volumeAnalysis: string[] = []
@@ -786,4 +783,3 @@ function calculateBlockchainAdjustment(blockchainData: BlockchainInsights): {
   }
 }
 
-// Note: assessCustomTimeFrameRisk integrated into assessTimeFrameRisk utility function above

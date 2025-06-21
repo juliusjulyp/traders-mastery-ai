@@ -49,6 +49,111 @@
   line-height: 1.5;
 }
 
+/* Quick Templates */
+.quick-templates {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.quick-templates h3 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.template-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.template-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.template-btn:hover::before {
+  opacity: 1;
+}
+
+.template-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.template-btn.conservative {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.template-btn.conservative:hover {
+  background: rgba(40, 167, 69, 0.05);
+}
+
+.template-btn.aggressive {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.template-btn.aggressive:hover {
+  background: rgba(220, 53, 69, 0.05);
+}
+
+.template-btn.scalping {
+  color: #fd7e14;
+  border-color: #fd7e14;
+}
+
+.template-btn.scalping:hover {
+  background: rgba(253, 126, 20, 0.05);
+}
+
+.template-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.template-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.template-desc {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-align: center;
+  line-height: 1.2;
+}
+
 .form-group select {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");

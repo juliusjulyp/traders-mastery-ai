@@ -30,8 +30,17 @@ const limiter = rateLimit({
 app.use('/api/', limiter)
 
 // CORS configuration
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174', 
+  'http://localhost:5175'
+]
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL)
+}
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -83,6 +92,12 @@ app.listen(PORT, async () => {
   // Validate environment
   if (!process.env.ANTHROPIC_API_KEY) {
     console.warn('⚠️  WARNING: ANTHROPIC_API_KEY not set. Claude AI analysis will fail.')
+  }
+  
+  if (!process.env.NODIT_API_KEY) {
+    console.warn('⚠️  WARNING: NODIT_API_KEY not set. Blockchain data features will fail.')
+  } else {
+    console.log('✅ NODIT_API_KEY is configured')
   }
 
   // Test Nodit service connection

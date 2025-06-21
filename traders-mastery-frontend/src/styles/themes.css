@@ -1,0 +1,369 @@
+/* Multiple Color Themes for Traders Mastery */
+
+/* ============================================
+   MATRIX THEME (Default - Enhanced)
+   ============================================ */
+[data-theme="matrix"] {
+  /* Primary Colors */
+  --primary-green: #00ff41;
+  --primary-green-rgb: 0, 255, 65;
+  --secondary-green: #27ca3f;
+  --secondary-green-rgb: 39, 202, 63;
+  
+  /* Accent Colors */
+  --accent-blue: #4a9eff;
+  --accent-blue-rgb: 74, 158, 255;
+  --warning-orange: #ffbd2e;
+  --warning-orange-rgb: 255, 189, 46;
+  --error-red: #ff5f56;
+  --error-red-rgb: 255, 95, 86;
+  
+  /* Background Colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-card: #1e1e1e;
+  --bg-form: #252525;
+  
+  /* Text Colors */
+  --text-primary: var(--primary-green);
+  --text-secondary: #ffffff;
+  --text-muted: #888888;
+  --text-success: var(--secondary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* Theme-specific effects */
+  --theme-glow: 0 0 20px rgba(var(--primary-green-rgb), 0.3);
+  --theme-border: 2px solid var(--primary-green);
+}
+
+/* ============================================
+   TRADING FLOOR THEME (Professional)
+   ============================================ */
+[data-theme="trading-floor"] {
+  /* Primary Colors - Professional Red/Green */
+  --primary-green: #00c851;
+  --primary-green-rgb: 0, 200, 81;
+  --secondary-green: #00a74a;
+  --secondary-green-rgb: 0, 167, 74;
+  
+  /* Trading Colors */
+  --accent-blue: #2196f3;
+  --accent-blue-rgb: 33, 150, 243;
+  --warning-orange: #ff9800;
+  --warning-orange-rgb: 255, 152, 0;
+  --error-red: #f44336;
+  --error-red-rgb: 244, 67, 54;
+  
+  /* Professional Backgrounds */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --bg-card: #242424;
+  --bg-form: #2a2a2a;
+  
+  /* Professional Text */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted: #999999;
+  --text-success: var(--primary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* Trading floor effects */
+  --theme-glow: 0 0 15px rgba(33, 150, 243, 0.2);
+  --theme-border: 1px solid #404040;
+}
+
+/* ============================================
+   MINIMALIST THEME (Clean & Modern)
+   ============================================ */
+[data-theme="minimalist"] {
+  /* Subtle Colors */
+  --primary-green: #10b981;
+  --primary-green-rgb: 16, 185, 129;
+  --secondary-green: #059669;
+  --secondary-green-rgb: 5, 150, 105;
+  
+  /* Clean Accents */
+  --accent-blue: #3b82f6;
+  --accent-blue-rgb: 59, 130, 246;
+  --warning-orange: #f59e0b;
+  --warning-orange-rgb: 245, 158, 11;
+  --error-red: #ef4444;
+  --error-red-rgb: 239, 68, 68;
+  
+  /* Light Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-form: #f8fafc;
+  
+  /* Minimalist Text */
+  --text-primary: #1f2937;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-success: var(--primary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* Clean effects */
+  --theme-glow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --theme-border: 1px solid #e5e7eb;
+}
+
+/* ============================================
+   DARK MINIMALIST (Dark Mode for Minimalist)
+   ============================================ */
+[data-theme="minimalist"][data-mode="dark"] {
+  /* Dark Minimalist Colors */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --bg-form: #334155;
+  
+  /* Dark Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  
+  /* Dark effects */
+  --theme-glow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --theme-border: 1px solid #475569;
+}
+
+/* ============================================
+   CYBERPUNK THEME (Neon & Futuristic)
+   ============================================ */
+[data-theme="cyberpunk"] {
+  /* Neon Colors */
+  --primary-green: #39ff14;
+  --primary-green-rgb: 57, 255, 20;
+  --secondary-green: #32cd32;
+  --secondary-green-rgb: 50, 205, 50;
+  
+  /* Cyberpunk Palette */
+  --accent-blue: #00ffff;
+  --accent-blue-rgb: 0, 255, 255;
+  --warning-orange: #ff6600;
+  --warning-orange-rgb: 255, 102, 0;
+  --error-red: #ff0080;
+  --error-red-rgb: 255, 0, 128;
+  
+  /* Dark Cyber Backgrounds */
+  --bg-primary: #000011;
+  --bg-secondary: #0d1117;
+  --bg-tertiary: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-form: #1a1a2e;
+  
+  /* Neon Text */
+  --text-primary: var(--primary-green);
+  --text-secondary: #ffffff;
+  --text-muted: #8892b0;
+  --text-success: var(--secondary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* Cyberpunk effects */
+  --theme-glow: 0 0 30px rgba(57, 255, 20, 0.5);
+  --theme-border: 2px solid var(--primary-green);
+}
+
+/* ============================================
+   GOLDEN THEME (Luxury Trading)
+   ============================================ */
+[data-theme="golden"] {
+  /* Gold Colors */
+  --primary-green: #ffd700;
+  --primary-green-rgb: 255, 215, 0;
+  --secondary-green: #ffed4e;
+  --secondary-green-rgb: 255, 237, 78;
+  
+  /* Luxury Palette */
+  --accent-blue: #4169e1;
+  --accent-blue-rgb: 65, 105, 225;
+  --warning-orange: #ff8c00;
+  --warning-orange-rgb: 255, 140, 0;
+  --error-red: #dc143c;
+  --error-red-rgb: 220, 20, 60;
+  
+  /* Rich Backgrounds */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #404040;
+  --bg-card: #2a2a2a;
+  --bg-form: #353535;
+  
+  /* Elegant Text */
+  --text-primary: var(--primary-green);
+  --text-secondary: #ffffff;
+  --text-muted: #a0a0a0;
+  --text-success: var(--secondary-green);
+  --text-warning: var(--warning-orange);
+  --text-error: var(--error-red);
+  --text-info: var(--accent-blue);
+  
+  /* Golden effects */
+  --theme-glow: 0 0 25px rgba(255, 215, 0, 0.4);
+  --theme-border: 2px solid var(--primary-green);
+}
+
+/* ============================================
+   THEME-SPECIFIC COMPONENT ADJUSTMENTS
+   ============================================ */
+
+/* Trading Floor theme adjustments */
+[data-theme="trading-floor"] .fab-main {
+  background: linear-gradient(315deg, var(--accent-blue), #42a5f5);
+}
+
+[data-theme="trading-floor"] .metric-card.trend-up::before {
+  background: var(--primary-green);
+}
+
+[data-theme="trading-floor"] .metric-card.trend-down::before {
+  background: var(--error-red);
+}
+
+/* Minimalist theme adjustments */
+[data-theme="minimalist"] .terminal-base {
+  background: var(--bg-card);
+  border: var(--theme-border);
+  box-shadow: var(--theme-glow);
+}
+
+[data-theme="minimalist"] .sidebar {
+  background: var(--bg-card);
+  border-right: var(--theme-border);
+  box-shadow: var(--theme-glow);
+}
+
+[data-theme="minimalist"] .app {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+[data-theme="minimalist"][data-mode="dark"] .app {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Cyberpunk theme adjustments */
+[data-theme="cyberpunk"] .animated-chart {
+  border: 2px solid var(--accent-blue);
+  box-shadow: 0 0 20px rgba(var(--accent-blue-rgb), 0.3);
+}
+
+[data-theme="cyberpunk"] .progress-bar.green {
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-blue));
+  box-shadow: 0 0 15px rgba(var(--primary-green-rgb), 0.6);
+}
+
+[data-theme="cyberpunk"] .fab-main {
+  background: linear-gradient(315deg, var(--primary-green), var(--accent-blue));
+  box-shadow: 0 0 30px rgba(var(--primary-green-rgb), 0.7);
+}
+
+/* Golden theme adjustments */
+[data-theme="golden"] .dashboard {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+  border: 2px solid var(--primary-green);
+}
+
+[data-theme="golden"] .metric-card {
+  background: linear-gradient(135deg, var(--bg-form), var(--bg-tertiary));
+  border: 1px solid var(--primary-green);
+}
+
+[data-theme="golden"] .app {
+  background: linear-gradient(135deg, #2d1810 0%, #1a1a1a 100%);
+}
+
+/* ============================================
+   THEME TRANSITION ANIMATIONS
+   ============================================ */
+
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease !important;
+}
+
+/* Disable transitions during theme switching to prevent flash */
+.theme-switching * {
+  transition: none !important;
+}
+
+/* ============================================
+   RESPONSIVE THEME ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  [data-theme="minimalist"] .app {
+    background: var(--bg-primary);
+  }
+  
+  [data-theme="cyberpunk"] .theme-glow {
+    --theme-glow: 0 0 15px rgba(57, 255, 20, 0.3);
+  }
+  
+  [data-theme="golden"] .theme-glow {
+    --theme-glow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* ============================================
+   THEME SELECTOR COMPONENT STYLES
+   ============================================ */
+
+.theme-selector {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: var(--theme-border);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md);
+}
+
+.theme-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.theme-option.active {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.theme-option.matrix {
+  background: linear-gradient(135deg, #00ff41, #27ca3f);
+}
+
+.theme-option.trading-floor {
+  background: linear-gradient(135deg, #00c851, #2196f3);
+}
+
+.theme-option.minimalist {
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+}
+
+.theme-option.cyberpunk {
+  background: linear-gradient(135deg, #39ff14, #00ffff);
+}
+
+.theme-option.golden {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+}
